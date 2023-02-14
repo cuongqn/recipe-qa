@@ -38,7 +38,7 @@ You can use the `Agent` class to directly query questions
 from recipeqa import recipe
 
 agent = recipe.Agent()
-answer = agent.query("Can I combine miso paste with brussel sprouts?")
+answer = agent("Can I combine miso paste with brussel sprouts?")
 ```
 #### Extending `Agent` class
 Alternatively, the `Agent` class can be extended by using custom `Fetcher`, `Ranker`, `Summarizer`, and `qa_chain`. For example, to use a custom `Summarizer` and `qa_chain`, we need to do following
@@ -77,5 +77,5 @@ agent = recipe.Agent(
     doc_summarizer=CustomSummarizer(),
     qa_chain=custom_qa_chain
 )
-answer = agent.query("Can I combine miso paste with brussel sprouts?")
+answer = agent("Can I combine miso paste with brussel sprouts?")
 ```
