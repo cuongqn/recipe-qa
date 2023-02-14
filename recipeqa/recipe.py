@@ -36,27 +36,30 @@ class Agent:
         if refine_chain is None:
             self.refine_chain = chains.refine_chain
 
-    def __call__(self, query: str, fetch_k: int = 20, top_k: int = 5):
+    def __call__(self, query: str, fetch_k: int = 20, top_k: int = 5, refine: bool = False):
         docs = self.fetcher(query=query, k=fetch_k)
         top_docs = self.ranker(query=query, docs=docs, top_k=top_k)
         context_str = self.summarizer(docs=top_docs, query=query)
-        answer = self._answer(query=query, context_str=context_str)
-
+        answer = self._answer(query=query, context_str=context_str, refine=refine)
         bib = self._generate_bib(answer=answer, docs=top_docs)
         return f"Answer: {answer}\n\n\nReferences:\n\n{bib}"
 
-    def _answer(self, query: str, context_str: str) -> str:
+    def _answer(self, query: str, context_str: str, refine: bool) -> str:
         answer = self.qa_chain.run(
-            question=query, context_str=context_str, length="about 1500 words"
+            question=query, context_str=context_str, length="about 1000 words"
         )[1:]
+        if not refine:
+            return answer
+        
         count = 0
-        # while utils.maybe_is_truncated(answer):
-        #     answer = self.refine_chain.run(
-        #         question=query, existing_answer=answer, context_str=context_str
-        #     )
-        #     count += 1
-        #     if count == 5:
-        #         break
+        while utils.maybe_is_truncated(answer):
+            answer = self.refine_chain.run(
+                question=query, existing_answer=answer, context_str=context_str
+            )
+            count += 1
+            if count == 5:
+                break
+
         return answer
 
     def _generate_bib(self, answer: str, docs: List[Document]) -> str:
