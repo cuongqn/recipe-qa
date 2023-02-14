@@ -13,7 +13,7 @@ Set your OPENAI_API_KEY environment variable
 ```bash
 export OPENAI_API_KEY=<key>
 ```
-Use main as the entry point
+Use `main.py` as the entry point
 ```bash
 python main.py -q "Can I combine miso paste with brussel sprouts?"
 ```
