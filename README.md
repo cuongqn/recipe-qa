@@ -1,5 +1,5 @@
 # recipe-qa
-LLM-powered QA for food and recipes based on [paper-qa](https://github.com/whitead/paper-qa)
+LLM-powered Question-Answering for food and recipes based on [paper-qa](https://github.com/whitead/paper-qa)
 ## Installation
 Clone and install locally
 ```bash
