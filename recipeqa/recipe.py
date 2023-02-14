@@ -47,16 +47,16 @@ class Agent:
 
     def _answer(self, query: str, context_str: str) -> str:
         answer = self.qa_chain.run(
-            question=query, context_str=context_str, length="about 1000 words"
+            question=query, context_str=context_str, length="about 1500 words"
         )[1:]
         count = 0
-        while utils.maybe_is_truncated(answer):
-            answer = self.refine_chain.run(
-                question=query, existing_answer=answer, context_str=context_str
-            )
-            count += 1
-            if count == 5:
-                break
+        # while utils.maybe_is_truncated(answer):
+        #     answer = self.refine_chain.run(
+        #         question=query, existing_answer=answer, context_str=context_str
+        #     )
+        #     count += 1
+        #     if count == 5:
+        #         break
         return answer
 
     def _generate_bib(self, answer: str, docs: List[Document]) -> str:
