@@ -1,15 +1,20 @@
 # recipe-qa
 LLM-powered QA for food and recipes
-### Installation
+## Installation
+Clone and install locally
 ```bash
 git clone https://github.com/cuongqn/recipe-qa.git
 cd recipe-qa
 pip install .
 ```
 
-### Running
+## Running
+Use main as the entry point
 ```bash
-$ python main.py -q "Can I combine miso paste with brussel sprouts?"
+python main.py -q "Can I combine miso paste with brussel sprouts?"
+```
+Example output
+```
 Question: Can I combine miso paste with brussel sprouts?
 
 Answer: Yes, miso paste can be combined with brussel sprouts to make a delicious side dish. The Foodie Physician's recipe for Miso-Roasted-Brussels-Sprouts-2266030 provides a great example of how to do this. The recipe calls for roasting the sprouts with oil, salt, and pepper first to get them crispy. Then, the sprouts are tossed with the miso glaze and returned to the oven for a few minutes to caramelize. It is important to keep an eye on them as the glaze can burn quickly (The Foodie Physician-Miso-Roasted-Brussels-Sprouts-2266030).
