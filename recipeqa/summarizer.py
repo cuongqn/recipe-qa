@@ -3,7 +3,7 @@ from typing import List
 
 from langchain.docstore.document import Document
 
-import chains
+from recipeqa import chains
 
 
 class Summarizer(ABC):

@@ -1,7 +1,7 @@
 import argparse
 import logging
 
-import recipe
+from recipeqa import recipe
 
 logger = logging.getLogger()
 logger.setLevel(logging.WARNING)

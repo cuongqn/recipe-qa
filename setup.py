@@ -11,6 +11,10 @@ setup(
     author_email="cuong.nguyen1004@gmail.com",
     license="MIT",
     packages=["recipeqa"],
-    install_requires=["langchain>=0.0.80", "openai", "faiss-cpu"],
+    install_requires=[
+        "langchain>=0.0.80",
+        "openai",
+        "faiss-cpu",
+        "bs4"
+    ],
 )
-1

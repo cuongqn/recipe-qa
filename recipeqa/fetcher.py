@@ -6,7 +6,8 @@ import requests
 from bs4 import BeautifulSoup
 from bs4.element import Comment
 from langchain.docstore.document import Document
-import chains
+
+from recipeqa import chains
 
 
 class Fetcher(ABC):

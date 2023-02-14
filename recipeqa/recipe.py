@@ -3,11 +3,7 @@ from typing import List, Optional
 from langchain.chains import LLMChain
 from langchain.docstore.document import Document
 
-import chains
-import fetcher
-import ranker
-import summarizer
-import utils
+from recipeqa import chains, fetcher, ranker, summarizer, utils
 
 
 class Agent:
@@ -77,4 +73,3 @@ if __name__ == "__main__":
     answer = agent(
         query="How to combine miso paste with brussel sprouts?", fetch_k=20, top_k=5
     )
-
